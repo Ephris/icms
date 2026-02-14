@@ -46,7 +46,7 @@ export default function RegisterPage() {
       return;
     }
 
-    const { error: authError } = await signUp({
+    const { data, error: authError } = await signUp({
       email: form.email,
       password: form.password,
       fullName: `${form.firstName} ${form.lastName}`,
@@ -57,7 +57,14 @@ export default function RegisterPage() {
     setLoading(false);
 
     if (authError) {
-      setError(authError.message);
+      // Show more helpful error messages
+      let errorMessage = authError.message;
+      if (errorMessage.includes('profiles') || errorMessage.includes('relation') || errorMessage.includes('does not exist')) {
+        errorMessage = 'Database not set up. Please run the SQL schema in Supabase.';
+      } else if (errorMessage.includes('User already registered')) {
+        errorMessage = 'This email is already registered. Please sign in instead.';
+      }
+      setError(errorMessage);
     } else {
       setSuccess(true);
     }

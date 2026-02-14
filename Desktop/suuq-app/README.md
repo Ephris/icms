@@ -22,9 +22,17 @@ Open [http://localhost:3000](http://localhost:3000).
 ## Setting Up Supabase (Production)
 
 1. Create a free project at [supabase.com](https://supabase.com)
-2. Go to **SQL Editor** and run `supabase/schema.sql`
-3. Copy your project URL and anon key to `.env.local`
-4. Enable **Email Auth** in Authentication > Providers
+2. Go to **SQL Editor** in your Supabase dashboard
+3. Copy and paste the entire contents of `supabase/schema.sql` into the SQL Editor
+4. Click **Run** to execute the SQL (this creates tables, policies, and triggers)
+5. Copy your project URL and anon key from **Settings > API**
+6. Add them to `.env.local`:
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=your_project_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+   ```
+7. Enable **Email Auth** in Authentication > Providers > Email
+8. For Vercel deployment, add the same environment variables in Vercel project settings
 
 ## Deploy to Vercel
 
