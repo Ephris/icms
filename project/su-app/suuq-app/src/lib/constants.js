@@ -1,0 +1,436 @@
+// ==========================================================================
+// Suuq Soomaaliyeed — Constants
+// ==========================================================================
+
+export const SITE_NAME = 'Suuq Soomaaliyeed';
+export const SITE_TAGLINE = 'The Global Somali Business Hub';
+export const SITE_DESCRIPTION =
+  'Buy and sell products across the Somali world. List for free, call the seller, arrange pickup. No middleman, no fees.';
+
+export const CITIES = [
+  // Somalia
+  { name: 'Mogadishu', country: 'Somalia', region: 'East Africa' },
+  { name: 'Hargaysa', country: 'Somalia', region: 'East Africa' },
+  { name: 'Bosaso', country: 'Somalia', region: 'East Africa' },
+  { name: 'Burco', country: 'Somalia', region: 'East Africa' },
+  { name: 'Garowe', country: 'Somalia', region: 'East Africa' },
+  { name: 'Galkacyo', country: 'Somalia', region: 'East Africa' },
+  { name: 'Kismayu', country: 'Somalia', region: 'East Africa' },
+  { name: 'Lascanood', country: 'Somalia', region: 'East Africa' },
+  // Ethiopia
+  { name: 'Jijiga', country: 'Ethiopia', region: 'East Africa' },
+  // Kenya
+  { name: 'Wajeer', country: 'Kenya', region: 'East Africa' },
+  { name: 'Mandera', country: 'Kenya', region: 'East Africa' },
+  { name: 'Garissa', country: 'Kenya', region: 'East Africa' },
+  // Global
+  { name: 'Dubai', country: 'UAE', region: 'Middle East' },
+  { name: 'Guangzhou', country: 'China', region: 'Asia' },
+  { name: 'Yiwu', country: 'China', region: 'Asia' },
+];
+
+export const CITY_NAMES = CITIES.map((c) => c.name);
+
+export const CATEGORIES = [
+  { id: 'electronics', name: 'Electronics', icon: '📱' },
+  { id: 'vehicles', name: 'Vehicles', icon: '🚗' },
+  { id: 'fashion', name: 'Fashion', icon: '👗' },
+  { id: 'livestock', name: 'Livestock', icon: '🐄' },
+  { id: 'real-estate', name: 'Real Estate', icon: '🏠' },
+  { id: 'food', name: 'Food & Groceries', icon: '🍎' },
+  { id: 'furniture', name: 'Furniture', icon: '🛋️' },
+  { id: 'health', name: 'Health & Beauty', icon: '💊' },
+  { id: 'services', name: 'Services', icon: '🔧' },
+  { id: 'agriculture', name: 'Agriculture', icon: '🌱' },
+  { id: 'construction', name: 'Construction', icon: '🏗️' },
+  { id: 'sports', name: 'Sports', icon: '⚽' },
+  { id: 'education', name: 'Education', icon: '📚' },
+  { id: 'wholesale', name: 'Wholesale & Import', icon: '📦' },
+  { id: 'other', name: 'Other', icon: '🏷️' },
+];
+
+export const CATEGORY_NAMES = CATEGORIES.map((c) => c.name);
+
+// Sample data for demo mode (when Supabase is not configured)
+export const SAMPLE_PRODUCTS = [
+  {
+    id: '1',
+    title: 'Samsung Galaxy S24 Ultra — 256GB',
+    category: 'Electronics',
+    city: 'Mogadishu',
+    price: 850,
+    currency: 'USD',
+    description:
+      'Brand new Samsung Galaxy S24 Ultra, 256GB, midnight black. Original box and warranty. Purchased from Dubai supplier.',
+    seller_name: 'Abdi Mohamed',
+    phone: '+252 61 234 5678',
+    created_at: '2026-02-12T10:00:00Z',
+    views_count: 342,
+    images: [
+      'https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '2',
+    title: 'Toyota Land Cruiser V8 2019',
+    category: 'Vehicles',
+    city: 'Hargaysa',
+    price: 35000,
+    currency: 'USD',
+    description:
+      'Well-maintained Toyota Land Cruiser V8, 2019. White, leather interior. 65,000 km. Perfect for Somali roads. Documents available.',
+    seller_name: 'Farah Aden',
+    phone: '+252 63 456 7890',
+    created_at: '2026-02-10T08:00:00Z',
+    views_count: 528,
+    images: [
+      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1549317661-bd32c8ce0637?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '3',
+    title: '50 Goats — Healthy Vaccinated Stock',
+    category: 'Livestock',
+    city: 'Jijiga',
+    price: 3500,
+    currency: 'USD',
+    description:
+      '50 healthy goats, all vaccinated and well-fed. Suitable for farming or Eid. Transport arranged within Jijiga area.',
+    seller_name: 'Hassan Dire',
+    phone: '+251 91 555 4321',
+    created_at: '2026-02-11T12:00:00Z',
+    views_count: 189,
+    images: [
+      'https://images.unsplash.com/photo-1524024973431-2ad916746264?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1560951219-dab510a31969?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '4',
+    title: '3-Bedroom House — Near Main Road',
+    category: 'Real Estate',
+    city: 'Bosaso',
+    price: 45000,
+    currency: 'USD',
+    description:
+      'Modern 3-bedroom house in Bosaso. Living room, kitchen, 2 bathrooms, large compound. Water tank installed. Title deed available.',
+    seller_name: 'Khadija Omar',
+    phone: '+252 69 876 5432',
+    created_at: '2026-02-09T14:00:00Z',
+    views_count: 412,
+    images: [
+      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '5',
+    title: 'Handmade Somali Dirac — 10 Piece Collection',
+    category: 'Fashion',
+    city: 'Mogadishu',
+    price: 300,
+    currency: 'USD',
+    description:
+      'Beautiful collection of 10 handmade Somali dirac dresses. Various colors and patterns. High-quality Dubai fabric. Perfect for weddings.',
+    seller_name: 'Amina Yusuf',
+    phone: '+252 61 111 2233',
+    created_at: '2026-02-13T09:00:00Z',
+    views_count: 276,
+    images: [
+      'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '6',
+    title: 'Fresh Camel Milk — Daily Supply',
+    category: 'Food & Groceries',
+    city: 'Garissa',
+    price: 5,
+    currency: 'USD',
+    description:
+      'Fresh camel milk daily, 1L containers. Healthy camels in Garissa region. Delivery in town. Minimum 5L order.',
+    seller_name: 'Ibrahim Abdi',
+    phone: '+254 72 345 6789',
+    created_at: '2026-02-14T06:00:00Z',
+    views_count: 98,
+    images: [
+      'https://images.unsplash.com/photo-1563636619-e9143da7973b?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1550583724-b2692b85b150?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1628088062854-d1870b4553da?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '7',
+    title: 'Wholesale Electronics — Direct from Guangzhou',
+    category: 'Wholesale & Import',
+    city: 'Guangzhou',
+    price: 5000,
+    currency: 'USD',
+    description:
+      'Wholesale electronics supplier in Guangzhou. Phones, tablets, accessories, speakers. Minimum order $5,000. Shipping to Mogadishu, Bosaso, and Berbera ports. Somali-speaking agent available.',
+    seller_name: 'Mahad Trading Co.',
+    phone: '+86 132 5678 9012',
+    created_at: '2026-02-11T04:00:00Z',
+    views_count: 612,
+    images: [
+      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '8',
+    title: 'Henna Artist — Weddings & Events',
+    category: 'Services',
+    city: 'Burco',
+    price: 50,
+    currency: 'USD',
+    description:
+      'Professional henna artist for weddings, engagements, events in Burco. Traditional and modern designs. 5+ years experience.',
+    seller_name: 'Fartun Ali',
+    phone: '+252 63 444 5566',
+    created_at: '2026-02-11T16:00:00Z',
+    views_count: 145,
+    images: [
+      'https://images.unsplash.com/photo-1599707367812-042bb449e6a2?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '9',
+    title: 'Clothing & Textile Wholesale — Yiwu Market',
+    category: 'Wholesale & Import',
+    city: 'Yiwu',
+    price: 3000,
+    currency: 'USD',
+    description:
+      'Direct supplier from Yiwu International Trade Market. Abayas, hijabs, fabrics, accessories, household items. MOQ varies. Shipping to East Africa arranged. Somali agent on-site.',
+    seller_name: 'Sagal Import Export',
+    phone: '+86 158 1234 5678',
+    created_at: '2026-02-08T07:00:00Z',
+    views_count: 534,
+    images: [
+      'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '10',
+    title: 'iPhone 15 Pro Max — 512GB',
+    category: 'Electronics',
+    city: 'Garowe',
+    price: 1100,
+    currency: 'USD',
+    description:
+      'iPhone 15 Pro Max, 512GB, Natural Titanium. Used 2 months, like new. All original accessories. No scratches.',
+    seller_name: 'Ali Mohamud',
+    phone: '+252 69 555 6677',
+    created_at: '2026-02-13T11:00:00Z',
+    views_count: 267,
+    images: [
+      'https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '11',
+    title: 'Premium Frankincense (Luubaan) — 5kg',
+    category: 'Agriculture',
+    city: 'Bosaso',
+    price: 120,
+    currency: 'USD',
+    description:
+      'Premium organic frankincense from Puntland. 5kg wholesale. Export quality. Local pickup or shipping arranged.',
+    seller_name: 'Muse Hersi',
+    phone: '+252 69 666 7788',
+    created_at: '2026-02-10T13:00:00Z',
+    views_count: 189,
+    images: [
+      'https://images.unsplash.com/photo-1599940824399-b87987ceb72a?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1587049352851-8d4e89133924?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '12',
+    title: 'Gold Jewelry Wholesale — Dubai',
+    category: 'Wholesale & Import',
+    city: 'Dubai',
+    price: 10000,
+    currency: 'USD',
+    description:
+      'Wholesale gold jewelry supplier in Dubai Gold Souk. 18K and 21K gold sets, bracelets, necklaces. Somali designs available. Shipping to Mogadishu and Hargaysa. Trusted by 200+ Somali traders.',
+    seller_name: 'Dhahab Dubai Trading',
+    phone: '+971 50 123 4567',
+    created_at: '2026-02-12T08:00:00Z',
+    views_count: 891,
+    images: [
+      'https://images.unsplash.com/photo-1515562141589-67f0d569b4e7?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '13',
+    title: 'Bajaj RE Tuk-Tuk 2023',
+    category: 'Vehicles',
+    city: 'Kismayu',
+    price: 2800,
+    currency: 'USD',
+    description:
+      'Bajaj RE three-wheeler, 2023. Green/yellow. Low mileage, excellent condition. Great for passenger transport business.',
+    seller_name: 'Abdirahman Nur',
+    phone: '+252 61 888 9900',
+    created_at: '2026-02-06T10:00:00Z',
+    views_count: 203,
+    images: [
+      'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '14',
+    title: 'Perfume & Unsi Gift Set',
+    category: 'Health & Beauty',
+    city: 'Dubai',
+    price: 150,
+    currency: 'USD',
+    description:
+      'Luxury perfume and unsi collection from Dubai. Cuud, bakhoor, body oils. Premium packaging. Wholesale available for shop owners in Somalia. Minimum 10 sets.',
+    seller_name: 'Ubax Fragrances',
+    phone: '+971 55 987 6543',
+    created_at: '2026-02-14T05:00:00Z',
+    views_count: 445,
+    images: [
+      'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '15',
+    title: '5 Camels — Young Breeding Stock',
+    category: 'Livestock',
+    city: 'Mandera',
+    price: 5000,
+    currency: 'USD',
+    description:
+      '5 young camels, 2-4 years. Healthy, vaccinated. Good breed for milk production. Negotiable for serious buyers.',
+    seller_name: 'Adan Warsame',
+    phone: '+254 72 333 4455',
+    created_at: '2026-02-09T15:00:00Z',
+    views_count: 178,
+    images: [
+      'https://images.unsplash.com/photo-1580086319619-3ed498161c77?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1452948460025-3a71cfb4422e?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '16',
+    title: '10 Bags Dangote Cement — 50kg',
+    category: 'Construction',
+    city: 'Mogadishu',
+    price: 80,
+    currency: 'USD',
+    description:
+      '10 bags Dangote cement, 50kg each. Fresh stock from port. Discount for 50+ bags. Pickup at Bakaaraha area.',
+    seller_name: 'Yusuf Osman',
+    phone: '+252 61 333 4455',
+    created_at: '2026-02-07T09:00:00Z',
+    views_count: 156,
+    images: [
+      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '17',
+    title: 'Solar Panel System — 1kW Complete Kit',
+    category: 'Electronics',
+    city: 'Guangzhou',
+    price: 800,
+    currency: 'USD',
+    description:
+      'Complete 1kW solar panel kit: 4 panels, inverter, battery, cables. Shipped from Guangzhou factory. Bulk discounts. Perfect for homes and shops in Somalia with unreliable grid.',
+    seller_name: 'Dalmar Solar Ltd.',
+    phone: '+86 139 8765 4321',
+    created_at: '2026-02-13T03:00:00Z',
+    views_count: 723,
+    images: [
+      'https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '18',
+    title: 'Tutoring — Math & Science',
+    category: 'Education',
+    city: 'Lascanood',
+    price: 30,
+    currency: 'USD',
+    description:
+      'Math and science tutoring for secondary students. $30/month, 3 sessions/week. Home visits or group classes.',
+    seller_name: 'Nasra Ahmed',
+    phone: '+252 63 555 6677',
+    created_at: '2026-02-13T12:00:00Z',
+    views_count: 67,
+    images: [
+      'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '19',
+    title: 'Living Room Furniture Set',
+    category: 'Furniture',
+    city: 'Hargaysa',
+    price: 600,
+    currency: 'USD',
+    description:
+      'Brand new 7-seater sofa set in burgundy. Locally made, hardwood frame, high-quality foam. 3+2+1+1. Delivery in Hargaysa.',
+    seller_name: 'Sahra Jama',
+    phone: '+252 63 222 3344',
+    created_at: '2026-02-08T11:00:00Z',
+    views_count: 234,
+    images: [
+      'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=600&h=400&fit=crop',
+    ],
+  },
+  {
+    id: '20',
+    title: 'Commercial Plot — Maka Al-Mukarama Rd',
+    category: 'Real Estate',
+    city: 'Mogadishu',
+    price: 80000,
+    currency: 'USD',
+    description:
+      'Prime commercial land on Maka Al-Mukarama Road. 200 sqm, fenced, title deed. Ideal for shop, restaurant, or office.',
+    seller_name: 'Omar Guled',
+    phone: '+252 61 999 0011',
+    created_at: '2026-02-05T16:00:00Z',
+    views_count: 567,
+    images: [
+      'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=600&h=400&fit=crop',
+      'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop',
+    ],
+  },
+];
