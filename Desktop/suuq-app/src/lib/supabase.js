@@ -20,14 +20,57 @@ export const isSupabaseConfigured = () => !!supabase;
 export async function signUp({ email, password, fullName, phone, city }) {
   if (!supabase) return { error: { message: 'Supabase not configured' } };
 
-  const { data, error } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      data: { full_name: fullName, phone, city },
-    },
-  });
-  return { data, error };
+  try {
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: { full_name: fullName, phone, city },
+      },
+    });
+    
+    // If signup succeeds but profile creation fails, check the profile
+    if (data?.user && !error) {
+      // Wait a bit for the trigger to create the profile
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Check if profile was created
+      const { data: profile, error: profileError } = await supabase
+        .from('profiles')
+        .select('*')
+        .eq('id', data.user.id)
+        .single();
+      
+      if (profileError && !profile) {
+        // Profile wasn't created by trigger, try to create it manually
+        const { error: insertError } = await supabase
+          .from('profiles')
+          .insert({
+            id: data.user.id,
+            full_name: fullName,
+            phone: phone,
+            city: city,
+          });
+        
+        if (insertError) {
+          return { 
+            data, 
+            error: { 
+              message: `Profile creation failed: ${insertError.message}. Please check if the profiles table exists and has the correct permissions.` 
+            } 
+          };
+        }
+      }
+    }
+    
+    return { data, error };
+  } catch (err) {
+    return { 
+      error: { 
+        message: `Signup error: ${err.message}. Please check your database setup.` 
+      } 
+    };
+  }
 }
 
 export async function signIn({ email, password }) {
