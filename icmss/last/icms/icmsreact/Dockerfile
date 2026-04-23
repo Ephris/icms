@@ -7,8 +7,8 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     && docker-php-ext-install zip pdo pdo_mysql
 
-# Configure Apache MPM (disable conflicting modules)
-RUN a2dismod mpm_event mpm_worker && a2enmod mpm_prefork
+# Configure Apache MPM (purge conflicting MPMs)
+RUN apt-get purge -y apache2-mpm-worker apache2-mpm-event && a2enmod mpm_prefork
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
