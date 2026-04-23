@@ -1,14 +1,17 @@
 # Use PHP 8.2 with Apache
 FROM php:8.2-apache
 
-# Install MySQL extensions
-RUN docker-php-ext-install pdo pdo_mysql
-
-# Copy app
-COPY . /var/www/html
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    unzip \
+    libzip-dev \
+    && docker-php-ext-install zip pdo pdo_mysql
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+# Copy app
+COPY . /var/www/html
 
 # Install PHP deps
 RUN composer install --no-dev --optimize-autoloader
