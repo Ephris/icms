@@ -1,6 +1,9 @@
 # Use PHP 8.2 with Apache
 FROM php:8.2-apache
 
+# Disable mpm_event to prevent "More than one MPM loaded" conflict; mpm_prefork is required for PHP
+RUN rm /etc/apache2/mods-enabled/mpm_event.load
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     unzip \
